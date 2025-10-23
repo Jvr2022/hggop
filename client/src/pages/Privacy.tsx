@@ -1,15 +1,23 @@
 import { Shield, Lock, Eye, FileText } from "lucide-react";
-import Hero from "@/components/Hero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-background">
-      <Hero
-        title="Privacyverklaring"
-        subtitle="Informatie over hoe wij omgaan met uw persoonsgegevens en privacy."
-        showServiceTimes={false}
-      />
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-primary text-primary-foreground py-20"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Privacyverklaring</h1>
+          <p className="text-lg opacity-90 max-w-2xl">
+            Informatie over hoe wij omgaan met uw persoonsgegevens en privacy
+          </p>
+        </div>
+      </motion.div>
 
       <div className="max-w-4xl mx-auto px-6 py-16">
         <div className="prose prose-slate dark:prose-invert max-w-none">

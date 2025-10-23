@@ -1,5 +1,7 @@
 import { Link } from "wouter";
-import { Church, Mail, Phone, MapPin, Youtube, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Youtube, Facebook } from "lucide-react";
+import churchLogo from "@assets/image_1761243233618.png";
+import anbiLogo from "@assets/image_1761243403051.png";
 
 export default function Footer() {
   return (
@@ -8,13 +10,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Church className="w-5 h-5 text-primary" />
+            <div className="flex items-center gap-3 mb-4">
+              <img src={churchLogo} alt="HGGOP Logo" className="w-10 h-10" />
               <h3 className="font-semibold text-foreground">HGGOP</h3>
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Hervormde Gemeente Giessen-Oudekerk en Peursum. Een gemeenschap waar geloof, verbinding en omzien naar elkaar centraal staan.
             </p>
+            <Link href="/anbi">
+              <img src={anbiLogo} alt="ANBI Logo" className="w-32 h-auto hover-elevate transition-all rounded" />
+            </Link>
           </div>
 
           {/* Quick Links */}
@@ -73,19 +78,19 @@ export default function Footer() {
                 href="https://www.youtube.com/channel/UCAGi5k-LRMaNU1FDKARpx4A"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover-elevate active-elevate-2 p-2 rounded-md border border-border"
+                className="group hover-elevate active-elevate-2 p-2 rounded-md border border-border transition-all"
                 data-testid="link-youtube"
               >
-                <Youtube className="w-5 h-5 text-muted-foreground" />
+                <Youtube className="w-5 h-5 text-muted-foreground group-hover:text-red-600 transition-colors" />
               </a>
               <a
                 href="https://www.facebook.com/profile.php?id=100070326722884"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover-elevate active-elevate-2 p-2 rounded-md border border-border"
+                className="group hover-elevate active-elevate-2 p-2 rounded-md border border-border transition-all"
                 data-testid="link-facebook"
               >
-                <Facebook className="w-5 h-5 text-muted-foreground" />
+                <Facebook className="w-5 h-5 text-muted-foreground group-hover:text-blue-600 transition-colors" />
               </a>
             </div>
             <ul className="space-y-2">

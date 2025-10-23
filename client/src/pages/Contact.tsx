@@ -1,16 +1,24 @@
 import { Mail, Phone, MapPin, Clock, Youtube, Facebook } from "lucide-react";
-import Hero from "@/components/Hero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
     <div className="min-h-screen bg-background">
-      <Hero
-        title="Contact"
-        subtitle="Heeft u vragen of wilt u in contact komen met onze gemeente? We horen graag van u."
-        showServiceTimes={false}
-      />
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-primary text-primary-foreground py-20"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact</h1>
+          <p className="text-lg opacity-90 max-w-2xl">
+            Heeft u vragen of wilt u in contact komen met onze gemeente? We horen graag van u
+          </p>
+        </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">

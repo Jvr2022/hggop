@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { Heart, Users, BookOpen, Shield, Mail, Phone } from "lucide-react";
-import Hero from "@/components/Hero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { motion } from "framer-motion";
 import type { CouncilMember } from "@shared/schema";
 
 export default function About() {
@@ -20,11 +20,19 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Hero
-        title="Over Onze Gemeente"
-        subtitle="Een gemeenschap gebouwd op geloof, verbinding en omzien naar elkaar sinds 1586."
-        showServiceTimes={false}
-      />
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-primary text-primary-foreground py-20"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Over Onze Gemeente</h1>
+          <p className="text-lg opacity-90 max-w-2xl">
+            Een gemeenschap gebouwd op geloof, verbinding en omzien naar elkaar sinds 1586
+          </p>
+        </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Identity */}

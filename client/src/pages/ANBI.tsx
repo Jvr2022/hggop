@@ -1,15 +1,27 @@
 import { FileCheck, Building2, Users, Euro, Info } from "lucide-react";
-import Hero from "@/components/Hero";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import anbiLogo from "@assets/image_1761243403051.png";
 
 export default function ANBI() {
   return (
     <div className="min-h-screen bg-background">
-      <Hero
-        title="ANBI Status"
-        subtitle="Algemeen Nut Beogende Instelling - Transparantie en fiscale informatie."
-        showServiceTimes={false}
-      />
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-primary text-primary-foreground py-20"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center gap-6 mb-4">
+            <img src={anbiLogo} alt="ANBI Logo" className="w-24 h-auto" />
+            <h1 className="text-4xl md:text-5xl font-bold">ANBI Status</h1>
+          </div>
+          <p className="text-lg opacity-90 max-w-2xl">
+            Algemeen Nut Beogende Instelling - Transparantie en fiscale informatie
+          </p>
+        </div>
+      </motion.div>
 
       <div className="max-w-4xl mx-auto px-6 py-16">
         <div className="space-y-8">

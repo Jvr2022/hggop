@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertServiceSchema, insertNewsSchema, insertCouncilMemberSchema } from "@shared/schema";
 import { ZodError } from "zod";
+import { listUpcomingEvents, createCalendarEvent, type CalendarEvent } from "./google-calendar";
 
 export function registerRoutes(app: Express): Server {
   const httpServer = createServer(app);
@@ -123,6 +124,46 @@ export function registerRoutes(app: Express): Server {
     } catch (error) {
       console.error("Error fetching about content:", error);
       res.status(500).json({ error: "Failed to fetch about content" });
+    }
+  });
+
+  // Google Calendar routes
+  app.get("/api/calendar/events", async (req, res) => {
+    try {
+      const maxResults = req.query.maxResults ? parseInt(req.query.maxResults as string) : 10;
+      const events = await listUpcomingEvents(maxResults);
+      res.json(events);
+    } catch (error) {
+      console.error("Error fetching calendar events:", error);
+      res.status(500).json({ error: "Failed to fetch calendar events" });
+    }
+  });
+
+  app.post("/api/calendar/events", async (req, res) => {
+    try {
+      const { summary, description, location, start, end, timeZone } = req.body;
+      
+      if (!summary || !start || !end) {
+        return res.status(400).json({ error: "Missing required fields: summary, start, end" });
+      }
+
+      const event = await createCalendarEvent({
+        summary,
+        description,
+        location,
+        start,
+        end,
+        timeZone,
+      });
+
+      if (!event) {
+        return res.status(500).json({ error: "Failed to create calendar event" });
+      }
+
+      res.status(201).json(event);
+    } catch (error) {
+      console.error("Error creating calendar event:", error);
+      res.status(500).json({ error: "Failed to create calendar event" });
     }
   });
 
