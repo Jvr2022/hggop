@@ -71,60 +71,58 @@ export class MemStorage implements IStorage {
   private seedData() {
     // Seed services
     const servicesData: InsertService[] = [
-      {
-        date: "24",
-        month: "november",
-        time: "9:00 uur",
-        preacher: "Ds. T.C. Verhoef",
-        location: "Hervormde Kerk Giessen-Oudekerk",
-        special: "Heilig Avondmaal",
-        sortOrder: 1
-      },
-      {
-        date: "24",
-        month: "november",
-        time: "10:45 uur",
-        preacher: "Ds. T.C. Verhoef",
-        location: "Hervormde Kerk Giessen-Oudekerk",
-        special: "Heilig Avondmaal",
-        sortOrder: 2
-      },
-      {
-        date: "24",
-        month: "november",
-        time: "18:30 uur",
-        preacher: "Ds. T.C. Verhoef",
-        location: "Hervormde Kerk Giessen-Oudekerk",
-        special: null,
-        sortOrder: 3
-      },
-      {
-        date: "1",
-        month: "december",
-        time: "9:00 uur",
-        preacher: "Ds. T.C. Verhoef",
-        location: "Hervormde Kerk Giessen-Oudekerk",
-        special: "1e Advent",
-        sortOrder: 4
-      },
-      {
-        date: "1",
-        month: "december",
-        time: "10:45 uur",
-        preacher: "Gastspreker",
-        location: "Hervormde Kerk Giessen-Oudekerk",
-        special: "Doopdienst",
-        sortOrder: 5
-      },
-      {
-        date: "1",
-        month: "december",
-        time: "18:30 uur",
-        preacher: "Ds. T.C. Verhoef",
-        location: "Hervormde Kerk Giessen-Oudekerk",
-        special: null,
-        sortOrder: 6
-      }
+      // Oktober
+      { date: "26", month: "oktober", time: "9:00 uur", preacher: "Ds. R.F. de Wit, Rotterdam", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 1 },
+      { date: "26", month: "oktober", time: "10:45 uur", preacher: "Ds. R.F. de Wit, Rotterdam", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 2 },
+      { date: "26", month: "oktober", time: "18:30 uur", preacher: "Ds. R.F. de Wit, Rotterdam", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 3 },
+      
+      // November
+      { date: "2", month: "november", time: "9:00 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Jeugddienst", sortOrder: 4 },
+      { date: "2", month: "november", time: "10:45 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Jeugddienst", sortOrder: 5 },
+      { date: "2", month: "november", time: "18:30 uur", preacher: "Ronny van Renswoude", location: "Hervormde Kerk Giessen-Oudekerk", special: "Jeugddienst", sortOrder: 6 },
+      
+      { date: "5", month: "november", time: "14:30 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Dankdag", sortOrder: 7 },
+      { date: "5", month: "november", time: "19:30 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Dankdag", sortOrder: 8 },
+      
+      { date: "9", month: "november", time: "9:00 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 9 },
+      { date: "9", month: "november", time: "10:45 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Doopdienst", sortOrder: 10 },
+      { date: "9", month: "november", time: "18:30 uur", preacher: "Ds. C. van Velzen, Blaricum", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 11 },
+      
+      { date: "16", month: "november", time: "9:00 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 12 },
+      { date: "16", month: "november", time: "10:45 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 13 },
+      { date: "16", month: "november", time: "18:30 uur", preacher: "Ds. J.S. Heutink, Katwijk", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 14 },
+      
+      { date: "23", month: "november", time: "9:00 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Eeuwigheidszondag", sortOrder: 15 },
+      { date: "23", month: "november", time: "10:45 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Eeuwigheidszondag", sortOrder: 16 },
+      { date: "23", month: "november", time: "18:30 uur", preacher: "Ds. P.A. Verbaan, Ede", location: "Hervormde Kerk Giessen-Oudekerk", special: "Eeuwigheidszondag", sortOrder: 17 },
+      
+      { date: "30", month: "november", time: "9:00 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Voorbereiding Heilig Avondmaal", sortOrder: 18 },
+      { date: "30", month: "november", time: "10:45 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Voorbereiding Heilig Avondmaal", sortOrder: 19 },
+      { date: "30", month: "november", time: "18:30 uur", preacher: "Ds. M. Dubbelman, Hardinxveld-Giessendam", location: "Hervormde Kerk Giessen-Oudekerk", special: "Voorbereiding Heilig Avondmaal", sortOrder: 20 },
+      
+      // December
+      { date: "7", month: "december", time: "9:00 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Heilig Avondmaal", sortOrder: 21 },
+      { date: "7", month: "december", time: "10:45 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Heilig Avondmaal", sortOrder: 22 },
+      { date: "7", month: "december", time: "18:30 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Heilig Avondmaal", sortOrder: 23 },
+      
+      { date: "14", month: "december", time: "9:00 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 24 },
+      { date: "14", month: "december", time: "10:45 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 25 },
+      { date: "14", month: "december", time: "18:30 uur", preacher: "Ds. P. Baas, Zoetermeer", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 26 },
+      
+      { date: "21", month: "december", time: "9:00 uur", preacher: "Dhr. M. van der Linden, Katwijk a/d Rijn", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 27 },
+      { date: "21", month: "december", time: "10:45 uur", preacher: "Dhr. M. van der Linden, Katwijk a/d Rijn", location: "Hervormde Kerk Giessen-Oudekerk", special: "Kerstfeest zondagsschool", sortOrder: 28 },
+      { date: "21", month: "december", time: "18:30 uur", preacher: "-", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 29 },
+      
+      { date: "24", month: "december", time: "21:30 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Kerstnachtdienst", sortOrder: 30 },
+      
+      { date: "25", month: "december", time: "9:00 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Kerst", sortOrder: 31 },
+      { date: "25", month: "december", time: "10:45 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Kerst", sortOrder: 32 },
+      
+      { date: "28", month: "december", time: "9:00 uur", preacher: "Ds. B. Lammers, Heerde", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 33 },
+      { date: "28", month: "december", time: "10:45 uur", preacher: "Ds. B. Lammers, Heerde", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 34 },
+      { date: "28", month: "december", time: "18:30 uur", preacher: "Ds. B.H. Weegink, Katwijk", location: "Hervormde Kerk Giessen-Oudekerk", special: null, sortOrder: 35 },
+      
+      { date: "31", month: "december", time: "19:30 uur", preacher: "Ds. T.C. Verhoef", location: "Hervormde Kerk Giessen-Oudekerk", special: "Oudejaarsavond", sortOrder: 36 }
     ];
 
     servicesData.forEach(service => {
@@ -168,54 +166,39 @@ export class MemStorage implements IStorage {
 
     // Seed council members
     const councilData: InsertCouncilMember[] = [
-      {
-        name: "Ds. T.C. Verhoef",
-        role: "Predikant",
-        email: "t.c.verhoef@hggop.nl",
-        phone: null,
-        category: "Predikant",
-        sortOrder: 1
-      },
-      {
-        name: "A. de Vries",
-        role: "Voorzitter",
-        email: "kerkenraad@hggop.nl",
-        phone: null,
-        category: "Ouderlingen",
-        sortOrder: 2
-      },
-      {
-        name: "B. Jansen",
-        role: "Scriba",
-        email: "scriba@hggop.nl",
-        phone: null,
-        category: "Ouderlingen",
-        sortOrder: 3
-      },
-      {
-        name: "C. van den Berg",
-        role: "Ouderling",
-        email: "kerkenraad@hggop.nl",
-        phone: null,
-        category: "Ouderlingen",
-        sortOrder: 4
-      },
-      {
-        name: "D. Bakker",
-        role: "Voorzitter Diaconie",
-        email: "diaconie@hggop.nl",
-        phone: null,
-        category: "Diakenen",
-        sortOrder: 5
-      },
-      {
-        name: "E. Visser",
-        role: "Penningmeester",
-        email: "penningmeester@hggop.nl",
-        phone: null,
-        category: "Diakenen",
-        sortOrder: 6
-      }
+      // Predikant
+      { name: "T.C. Verhoef", role: "Predikant", email: "t.c.verhoef@hggop.nl", phone: "06-39730344", category: "Predikant", sortOrder: 1 },
+      
+      // Kerkelijk Werker
+      { name: "Ronny van Renswoude", role: "Kerkelijk werker", email: "ronny.van.renswoude@hggop.nl", phone: "06-19460035", category: "Kerkelijk Werker", sortOrder: 2 },
+      
+      // Ouderlingen
+      { name: "W.J. Blom", role: "Ouderling ouderenwerk wijk 6 t/m 10", email: "wim.blom@hggop.nl", phone: "06-57057482", category: "Ouderlingen", sortOrder: 3 },
+      { name: "A.H. den Breejen", role: "Missionair ouderling", email: "aart.den.breejen@hggop.nl", phone: "06-36315627", category: "Ouderlingen", sortOrder: 4 },
+      { name: "R. de Bruin", role: "Ouderling-kerkrentmeester", email: "rene.de.bruin@hggop.nl", phone: "06-20342863", category: "Ouderlingen", sortOrder: 5 },
+      { name: "M. van Dijk", role: "Ouderling-kerkrentmeester, Voorzitter", email: "riens.van.dijk@hggop.nl", phone: "06-33683832", category: "Ouderlingen", sortOrder: 6 },
+      { name: "A.I.J. van Drenth", role: "Wijkouderling wijk 6", email: "jorieneke.van.drenth@hggop.nl", phone: "06-29461621", category: "Ouderlingen", sortOrder: 7 },
+      { name: "H. van Eeuwijk", role: "Wijkouderling wijk 9", email: "henri.van.eeuwijk@hggop.nl", phone: "06-20482457", category: "Ouderlingen", sortOrder: 8 },
+      { name: "W. Gorree", role: "Wijkouderling wijk 1", email: "wout.gorree@hggop.nl", phone: "0184-651733", category: "Ouderlingen", sortOrder: 9 },
+      { name: "A.C. Hoffland", role: "Wijkouderling wijk 10", email: "andre.hoffland@hggop.nl", phone: "0184-642574", category: "Ouderlingen", sortOrder: 10 },
+      { name: "W. de Jong", role: "Wijkouderling wijk 7", email: "wout.de.jong@hggop.nl", phone: "06-51287967", category: "Ouderlingen", sortOrder: 11 },
+      { name: "D.T. Kon", role: "Ouderling-kerkrentmeester", email: "theo.kon@hggop.nl", phone: "06-51806890", category: "Ouderlingen", sortOrder: 12 },
+      { name: "J. Lam", role: "Wijkouderling wijk 8", email: "hans.lam@hggop.nl", phone: "06-23397677", category: "Ouderlingen", sortOrder: 13 },
+      { name: "J.A. Leeuwis", role: "Ouderling eredienst, Praeses", email: "joop.leeuwis@hggop.nl", phone: "0184-652211", category: "Ouderlingen", sortOrder: 14 },
+      { name: "P. Prins", role: "Wijkouderling wijk 2&3", email: "pieter.prins@hggop.nl", phone: "06-53377619", category: "Ouderlingen", sortOrder: 15 },
+      { name: "A. Romeijn", role: "Wijkouderling wijk 4&5", email: "aart.romeijn@hggop.nl", phone: "06-25008662", category: "Ouderlingen", sortOrder: 16 },
+      { name: "L. van Wijngaarden", role: "Ouderling ouderenwerk wijk 1 t/m 5", email: "leen.van.wijngaarden@hggop.nl", phone: "06-25218978", category: "Ouderlingen", sortOrder: 17 },
+      
+      // Jeugdouderlingen
+      { name: "A. Bouter-Breedveld", role: "Jeugdouderling", email: "adinda.bouter@hggop.nl", phone: "06-11133293", category: "Jeugdouderlingen", sortOrder: 18 },
+      { name: "B.H. van Muijlwijk", role: "Jeugdouderling", email: "sebastiaan.van.muijlwijk@hggop.nl", phone: "06-10506859", category: "Jeugdouderlingen", sortOrder: 19 },
+      
+      // Diakenen
+      { name: "E. Both", role: "Scriba, Secretaris", email: "emile.both@hggop.nl", phone: "06-57765911", category: "Diakenen", sortOrder: 20 },
+      { name: "M.M. Post", role: "Jeugddiaken", email: "martin.post@hggop.nl", phone: "06-27391753", category: "Diakenen", sortOrder: 21 },
+      { name: "A.M. Slagboom-Groeneveld", role: "Diaken", email: "marian.slagboom@hggop.nl", phone: "06-83240848", category: "Diakenen", sortOrder: 22 },
+      { name: "C.H. Versloot", role: "Voorzitter", email: "kees.versloot@hggop.nl", phone: "06-47273610", category: "Diakenen", sortOrder: 23 },
+      { name: "L.D.L.A. Visser", role: "Penningmeester", email: "lennard.visser@hggop.nl", phone: "06-39672917", category: "Diakenen", sortOrder: 24 }
     ];
 
     councilData.forEach(member => {

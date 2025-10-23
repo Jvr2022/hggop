@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
-import { Calendar, Clock, ArrowRight, Users, Heart, BookOpen } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Users, Heart, BookOpen, Phone, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -418,7 +418,7 @@ export default function Home() {
                     <CardContent className="p-6">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                         <Calendar className="w-4 h-4" />
-                        <span>{article.date}</span>
+                        <span>{new Date(article.date).toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" })}</span>
                       </div>
                       <h3 className="text-xl font-semibold mb-3 line-clamp-2" data-testid={`text-title-${article.id}`}>
                         {article.title}
@@ -437,6 +437,86 @@ export default function Home() {
               <p className="text-muted-foreground text-lg">Geen nieuws beschikbaar</p>
             </Card>
           )}
+        </motion.section>
+
+        {/* Contact & App Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-24"
+        >
+          <div className="rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-background border border-primary/20 p-8 md:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Blijf Verbonden</h2>
+                <p className="text-muted-foreground text-lg mb-6">
+                  Download onze app voor actuele informatie, weekbrief en meer. Of neem direct contact met ons op.
+                </p>
+                
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Telefonisch contact</p>
+                    <a href="tel:+31639730344" className="text-xl font-semibold text-primary hover:underline">
+                      06-39730344
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Kerkelijk Bureau</p>
+                    <a href="tel:+31184651407" className="text-xl font-semibold text-primary hover:underline">
+                      0184-651407
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <Smartphone className="w-6 h-6 text-primary" />
+                  <h3 className="text-xl font-semibold">Download onze app</h3>
+                </div>
+                <p className="text-muted-foreground mb-6">
+                  Ontvang push notificaties voor belangrijke updates en blijf op de hoogte.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a 
+                    href="https://play.google.com/store/apps/details?id=app.donkeymobile.pknhggop&gl=NL" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <img 
+                      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                      alt="Get it on Google Play" 
+                      className="h-14 hover:opacity-80 transition-opacity"
+                    />
+                  </a>
+                  <a 
+                    href="https://apps.apple.com/in/app/hggop/id1537405011" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <img 
+                      src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
+                      alt="Download on the App Store" 
+                      className="h-14 hover:opacity-80 transition-opacity"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.section>
       </div>
     </div>
