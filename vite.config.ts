@@ -19,7 +19,7 @@ export default defineConfig(async () => {
   return {
     plugins: [
       react(),
-      runtimeErrorOverlay(),
+      ...(process.env.NODE_ENV !== "production" ? [runtimeErrorOverlay()] : []),
       ...devPlugins
     ],
     resolve: {

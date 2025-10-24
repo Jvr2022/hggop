@@ -1,7 +1,6 @@
 import express from "express";
-import { VercelRequest, VercelResponse } from "@vercel/node";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { registerRoutes } from "./routes";
-import { serveStatic } from "./vite";
 
 const app = express();
 app.use(express.json());
@@ -18,7 +17,8 @@ registerRoutes(app);
 const isVercel = process.env.VERCEL === '1' || process.env.VERCEL === 'true';
 if (!isVercel) {
   try {
-    // Serve dist/public if present
+    // Serve dist/public if present (import lazily to avoid bundling vite in serverless)
+    const { serveStatic } = await import("./vite");
     serveStatic(app);
   } catch (_) {
     // ignore if dist/public is missing; app will still serve API
