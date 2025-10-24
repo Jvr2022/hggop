@@ -7,6 +7,17 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "HGGOP",
   description: "Hervormde Gemeente Giessen-Oudekerk en Peursum",
+  icons: {
+    icon: [
+      { url: "/assets/image_1761243233618.png", type: "image/png" },
+    ],
+    shortcut: [
+      { url: "/assets/image_1761243233618.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/assets/image_1761243233618.png", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
