@@ -7,8 +7,8 @@ import {
   type InsertCouncilMember,
   type ChurchInfo,
   type AboutContent
-} from "@shared/schema";
-import { randomUUID } from "crypto";
+} from "../shared/schema";
+import { randomUUID } from "node:crypto";
 
 export interface IStorage {
   // Services
@@ -127,7 +127,8 @@ export class MemStorage implements IStorage {
 
     servicesData.forEach(service => {
       const id = randomUUID();
-      this.services.set(id, { ...service, id });
+      const withId: Service = { ...service, id } as Service;
+      this.services.set(id, withId);
     });
 
     // Seed news
@@ -157,11 +158,12 @@ export class MemStorage implements IStorage {
 
     newsData.forEach(newsItem => {
       const id = randomUUID();
-      this.news.set(id, { 
-        ...newsItem, 
-        id, 
-        date: new Date()
-      });
+      const withId: News = {
+        ...newsItem,
+        id,
+        date: new Date(),
+      } as News;
+      this.news.set(id, withId);
     });
 
     // Seed council members
@@ -203,7 +205,8 @@ export class MemStorage implements IStorage {
 
     councilData.forEach(member => {
       const id = randomUUID();
-      this.councilMembers.set(id, { ...member, id });
+      const withId: CouncilMember = { ...member, id } as CouncilMember;
+      this.councilMembers.set(id, withId);
     });
   }
 
@@ -219,7 +222,16 @@ export class MemStorage implements IStorage {
 
   async createService(insertService: InsertService): Promise<Service> {
     const id = randomUUID();
-    const service: Service = { ...insertService, id };
+    const service: Service = {
+      id,
+      date: insertService.date,
+      month: insertService.month,
+      time: insertService.time,
+      preacher: insertService.preacher,
+      location: insertService.location ?? null,
+      special: insertService.special ?? null,
+      sortOrder: insertService.sortOrder ?? 0,
+    };
     this.services.set(id, service);
     return service;
   }
@@ -238,10 +250,14 @@ export class MemStorage implements IStorage {
 
   async createNews(insertNews: InsertNews): Promise<News> {
     const id = randomUUID();
-    const news: News = { 
-      ...insertNews, 
-      id, 
-      date: new Date()
+    const news: News = {
+      id,
+      title: insertNews.title,
+      excerpt: insertNews.excerpt,
+      content: insertNews.content,
+      date: new Date(),
+      imageUrl: insertNews.imageUrl ?? null,
+      featured: insertNews.featured ?? 0,
     };
     this.news.set(id, news);
     return news;
@@ -256,7 +272,15 @@ export class MemStorage implements IStorage {
 
   async createCouncilMember(insertMember: InsertCouncilMember): Promise<CouncilMember> {
     const id = randomUUID();
-    const member: CouncilMember = { ...insertMember, id };
+    const member: CouncilMember = {
+      id,
+      name: insertMember.name,
+      role: insertMember.role,
+      email: insertMember.email,
+      phone: insertMember.phone ?? null,
+      category: insertMember.category,
+      sortOrder: insertMember.sortOrder ?? 0,
+    };
     this.councilMembers.set(id, member);
     return member;
   }

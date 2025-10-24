@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertServiceSchema, insertNewsSchema, insertCouncilMemberSchema } from "@shared/schema";
+import { insertServiceSchema, insertNewsSchema, insertCouncilMemberSchema } from "../shared/schema";
 import { ZodError } from "zod";
 import { listUpcomingEvents, createCalendarEvent, type CalendarEvent } from "./google-calendar";
 
