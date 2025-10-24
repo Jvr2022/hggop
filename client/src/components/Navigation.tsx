@@ -1,5 +1,7 @@
+"use client";
 import { useState } from "react";
-import { Link, useLocation } from "wouter";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -8,10 +10,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import churchLogo from "@assets/image_1761243233618.png";
 
 export default function Navigation() {
-  const [location] = useLocation();
+  const location = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const isActive = (href: string) => {
@@ -29,7 +30,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 hover-elevate active-elevate-2 rounded-md px-3 py-2 -ml-3 transition-all" data-testid="link-home">
-            <img src={churchLogo} alt="HGGOP Logo" className="w-12 h-12" />
+            <img src="/assets/image_1761243233618.png" alt="HGGOP Logo" className="w-12 h-12" />
             <span className="font-bold text-xl text-foreground">HGGOP</span>
           </Link>
 

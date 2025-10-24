@@ -1,7 +1,5 @@
-import { Link } from "wouter";
+import Link from "next/link";
 import { Mail, Phone, MapPin, Youtube, Facebook } from "lucide-react";
-import churchLogo from "@assets/image_1761243233618.png";
-import anbiLogo from "@assets/image_1761243403051.png";
 
 export default function Footer() {
   return (
@@ -11,14 +9,14 @@ export default function Footer() {
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={churchLogo} alt="HGGOP Logo" className="w-10 h-10" />
+              <img src="/assets/image_1761243233618.png" alt="HGGOP Logo" className="w-10 h-10" />
               <h3 className="font-semibold text-foreground">HGGOP</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               Hervormde Gemeente Giessen-Oudekerk en Peursum. Een gemeenschap waar geloof, verbinding en omzien naar elkaar centraal staan.
             </p>
             <Link href="/anbi">
-              <img src={anbiLogo} alt="ANBI Logo" className="w-32 h-auto hover-elevate transition-all rounded" />
+              <img src="/assets/image_1761243403051.png" alt="ANBI Logo" className="w-32 h-auto hover-elevate transition-all rounded" />
             </Link>
           </div>
 
@@ -111,6 +109,14 @@ export default function Footer() {
         <div className="border-t border-card-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Hervormde Gemeente Giessen-Oudekerk en Peursum. Alle rechten voorbehouden.
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Gemaakt met ❤ door Joshua van Rijswijk. Ook een website? Mail
+            {" "}
+            <a href="mailto:joshuavanrijswijk@outlook.com" className="underline hover:text-foreground">
+              joshuavanrijswijk@outlook.com
+            </a>
+            .
           </p>
         </div>
       </div>

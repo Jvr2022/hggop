@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Copied from client/src/index.css to keep styles consistent */
 /* LIGHT MODE - Premium Black & White Monochromatic */
 :root {
   --button-outline: rgba(0,0,0, .10);
@@ -271,25 +272,9 @@
    * So borders will be automatically adjusted both on toggle, and hover/active,
    * and they will be compounded.
    */
-  .toggle-elevate::before,
-  .toggle-elevate-2::before {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    inset: 0px;
-    /*border-radius: inherit;   match rounded corners */
-    border-radius: inherit;
-    z-index: -1;
-    /* sits behind content but above backdrop */
-  }
-
-  .toggle-elevate.toggle-elevated::before {
+  /* Removed ::before-based toggle utilities to avoid parser conflicts with pseudo-element variants */
+  .toggle-elevate.toggle-elevated {
     background-color: var(--elevate-2);
-  }
-
-  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
-  .border.toggle-elevate::before {
-    inset: -1px;
   }
 
   /* Does not work on elements with overflow:hidden! */
@@ -301,36 +286,15 @@
     z-index: 0;
   }
 
-  .hover-elevate:not(.no-default-hover-elevate)::after,
-  .active-elevate:not(.no-default-active-elevate)::after,
-  .hover-elevate-2:not(.no-default-hover-elevate)::after,
-  .active-elevate-2:not(.no-default-active-elevate)::after {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    inset: 0px;
-    /*border-radius: inherit;   match rounded corners */
-    border-radius: inherit;
-    z-index: 999;
-    /* sits in front of content */
-  }
-
-  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
-  .active-elevate:active:not(.no-default-active-elevate)::after {
+  .hover-elevate:hover:not(.no-default-hover-elevate),
+  .active-elevate:active:not(.no-default-active-elevate) {
     background-color: var(--elevate-1);
   }
 
-  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
-  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+  .hover-elevate-2:hover:not(.no-default-hover-elevate),
+  .active-elevate-2:active:not(.no-default-active-elevate) {
     background-color: var(--elevate-2);
   }
 
-  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
-  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
-  .border.active-elevate:not(.no-active-interaction-elevate)::after,
-  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
-  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
-  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
-    inset: -1px;
-  }
+  /* Removed inset adjustment to avoid ::after::after collisions with Tailwind's after:* utilities */
 }

@@ -2,7 +2,6 @@ import { FileCheck, Building2, Users, Euro, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import anbiLogo from "@assets/image_1761243403051.png";
 
 export default function ANBI() {
   const [selectedYear, setSelectedYear] = useState<number>(2025);
@@ -55,7 +54,7 @@ export default function ANBI() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-6 mb-4 flex-wrap">
-            <img src={anbiLogo} alt="ANBI Logo" className="w-20 h-auto" />
+            <img src="/assets/image_1761243403051.png" alt="ANBI Logo" className="w-20 h-auto" />
             <h1 className="text-4xl md:text-5xl font-bold">ANBI Status</h1>
           </div>
           <p className="text-lg opacity-90 max-w-2xl">
@@ -217,7 +216,7 @@ export default function ANBI() {
                 asChild
               >
                 <a
-                  href={`/docs/verantwoording/${selectedYear}-${String(month).padStart(2, '0')}.xls`}
+                  href={`/docs/${selectedYear}-${String(month).padStart(2, '0')}.xls`}
                   download
                 >
                   <Download className="w-4 h-4" />

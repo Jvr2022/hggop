@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "wouter";
+import Link from "next/link";
 import { Calendar, Clock, ArrowRight, Users, Heart, BookOpen, Phone, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "framer-motion";
 import type { Service, News } from "@shared/schema";
-import heroImage from "@assets/stock_images/modern_church_interi_3b9ac6f3.jpg";
-import communityImage from "@assets/stock_images/church_community_peo_9fd88c5d.jpg";
-import studyImage from "@assets/stock_images/bible_study_group_di_4a05a7a0.jpg";
+const heroImage = "/assets/stock_images/modern_church_interi_3b9ac6f3.jpg";
+const communityImage = "/assets/stock_images/church_community_peo_9fd88c5d.jpg";
+const studyImage = "/assets/stock_images/bible_study_group_di_4a05a7a0.jpg";
 
 export default function Home() {
   const { data: upcomingServices, isLoading: servicesLoading } = useQuery<Service[]>({
