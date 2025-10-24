@@ -1,12 +1,10 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertServiceSchema, insertNewsSchema, insertCouncilMemberSchema } from "../shared/schema";
 import { ZodError } from "zod";
 import { listUpcomingEvents, createCalendarEvent, type CalendarEvent } from "./google-calendar";
 
-export function registerRoutes(app: Express): Server {
-  const httpServer = createServer(app);
+export function registerRoutes(app: Express): void {
   // Services routes
   app.get("/api/services", async (req, res) => {
     try {
@@ -166,6 +164,4 @@ export function registerRoutes(app: Express): Server {
       res.status(500).json({ error: "Failed to create calendar event" });
     }
   });
-
-  return httpServer;
 }

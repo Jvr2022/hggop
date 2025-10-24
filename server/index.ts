@@ -18,8 +18,11 @@ const isVercel = process.env.VERCEL === '1' || process.env.VERCEL === 'true';
 if (!isVercel) {
   try {
     // Serve dist/public if present (import lazily to avoid bundling vite in serverless)
-    const { serveStatic } = await import("./vite");
-    serveStatic(app);
+    import("./vite").then(({ serveStatic }) => {
+      try {
+        serveStatic(app);
+      } catch {}
+    }).catch(() => {});
   } catch (_) {
     // ignore if dist/public is missing; app will still serve API
   }
